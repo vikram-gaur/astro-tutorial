@@ -1,10 +1,13 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
-const pageTitle = "Home Page";
+import BlogPost from '../components/BlogPost.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const pageTitle = "Thoughts on Sustainability";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    <p>Here are some thoughts and actions we can take for a more sustainable future.</p>
+    <ul class="blog-links">
+        {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+    </ul>
 </BaseLayout>

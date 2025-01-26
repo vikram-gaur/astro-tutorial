@@ -58,6 +58,18 @@ h1 {
   background-color: #ff9776;
 }
 
+.blog-links {
+  width: 100%;
+  display: contents;
+}
+
+.blog-links a {
+  display: block;
+  text-emphasis-color: #f1f5f9;
+  font-weight: initial;
+  color: black;
+}
+
 .expanded {
   display: unset;
 }
@@ -87,5 +99,9 @@ html.dark {
 }
 
 .dark .nav-links a {
+  color: #fff;
+}
+
+.dark .blog-links a {
   color: #fff;
 }
